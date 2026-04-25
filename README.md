@@ -1,2 +1,30 @@
 # CS-305
 SNHU Software Security
+
+1. Briefly summarize your client, Artemis Financial, and its software requirements. Who was the client? What issue did the company want you to address?
+
+Artemis Financial was a financial services company that needed help improving the security of its software application. The company wanted to modernize its existing application by adding secure communication and verifying that transmitted data could not be easily altered or intercepted. The main issue Artemis Financial wanted addressed was software security, especially protecting sensitive financial information and ensuring that the application used secure coding practices. For this project, the software requirements included adding checksum verification using a secure hashing algorithm, generating and configuring a certificate, enabling HTTPS communication, and performing testing to confirm that the application was functional and secure.
+
+2. What did you do well when you found your client’s software security vulnerabilities? Why is it important to code securely? What value does software security add to a company’s overall well-being?
+
+One thing I did well during the vulnerability assessment was identifying the need for stronger security controls and applying them directly to the application. I selected SHA-256 as the hashing algorithm because it is more secure than older algorithms such as MD5 or SHA-1. I also configured the application to use HTTPS on port 8443 with a self-signed certificate, which helped secure communication between the browser and the application. Coding securely is important because insecure code can expose a company to data breaches, financial loss, legal issues, and damage to customer trust. Software security adds value to a company’s overall well-being by protecting customer data, reducing risk, improving reliability, and helping the company maintain a strong reputation.
+
+3. Which part of the vulnerability assessment was challenging or helpful to you?
+
+The most challenging part of the vulnerability assessment was working with the dependency-check process and making sure the security scan ran correctly. OWASP Dependency-Check was helpful because it showed how third-party dependencies can introduce vulnerabilities into a project. However, the scan had issues retrieving NVD records and did not fully complete, which made that part more difficult. Even though it was challenging, it was helpful because it showed me that secure development is not only about writing code, but also about checking libraries, dependencies, configurations, and external tools.
+
+4. How did you increase layers of security? In the future, what would you use to assess vulnerabilities and decide which mitigation techniques to use?
+
+I increased layers of security by adding multiple protections instead of relying on only one security method. First, I used SHA-256 checksum generation to help verify data integrity. Second, I generated a self-signed certificate using Java Keytool. Third, I configured the Spring Boot application to use HTTPS instead of HTTP, which added encrypted communication through SSL/TLS. In the future, I would continue using tools such as OWASP Dependency-Check to assess vulnerabilities. I would also use resources such as the OWASP Top Ten, secure coding standards, static code analysis tools, and dependency reports to decide which mitigation techniques are most appropriate.
+
+5. How did you make certain the code and software application were functional and secure? After refactoring the code, how did you check to see whether you introduced new vulnerabilities?
+
+To make certain the code and software application were functional and secure, I tested the application after making the security changes. I ran the Spring Boot application and confirmed that it started successfully without runtime errors. I also tested the /hash endpoint in the browser using HTTPS and verified that it displayed the original data, the SHA-256 algorithm, and the generated checksum. After refactoring the code, I checked whether new vulnerabilities were introduced by attempting to run OWASP Dependency-Check. Although the scan had issues fully completing because of NVD data retrieval problems, the process still demonstrated secondary testing and showed that dependency analysis is an important part of secure software development.
+
+6. What resources, tools, or coding practices did you use that might be helpful in future assignments or tasks?
+
+The resources, tools, and coding practices I used in this project will be useful in future assignments and real-world tasks. Java Keytool was useful for generating the self-signed certificate and keystore. SHA-256 was useful for checksum verification and data integrity. Spring Boot configuration settings were used to enable HTTPS communication on port 8443. OWASP Dependency-Check was also an important tool because it helped identify potential vulnerabilities in third-party dependencies. Some coding practices I would continue using include choosing modern cryptographic algorithms, avoiding outdated security methods, testing after refactoring, using secure communication protocols, and reviewing dependencies regularly.
+
+7. Employers sometimes ask for examples of work that you have successfully completed to show your skills, knowledge, and experience. What might you show future employers from this assignment?
+
+For future employers, I could show this assignment as an example of my ability to apply secure software development practices to a working application. I could show the refactored Spring Boot application, the SHA-256 checksum implementation, the HTTPS configuration, the certificate generation process, and the testing results. This project demonstrates that I understand how to improve application security through hashing, certificate-based communication, SSL/TLS configuration, functional testing, and vulnerability assessment. It also shows that I can document my work clearly and explain why secure coding practices are important in protecting a company and its users.
